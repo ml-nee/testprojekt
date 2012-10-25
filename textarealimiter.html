@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>
+                        TextareaLimiter
+                </title>
+                <style>
+                        body {
+                                width: 400px;
+                                margin: 0 auto;
+                        }
+                        #message-div {
+                                position: relative;
+                                width: 350px;
+                                margin: 20px;
+                                padding: 15px 25px 10px 25px;
+                                border-radius: 10px;
+                                background-color: #00799E;
+                                font-size: 12pt;
+                                font-family: sans-serif;
+                                color: white;
+                        }
+                        #message-div textarea {
+                                background-color: #C6E4F2;
+                                border-radius: 10px;
+                                padding: 10px;
+                                margin-top: 5px;
+                                font-size: 14pt;
+                                font-family: sans-serif;
+                                border: 2px solid #00799E;
+                                width: 325px;
+                                height: 100px;
+                        }
+                        div.button {
+                                width: 100%;
+                                text-align: right;
+                        }
+                        div.button button {
+                                border-radius: 10px;
+                                border: 0;
+                                background-color: #C6E4F2;
+                                color: #00799E;
+                                font-size: 12pt;
+                                padding: 5px 15px 5px 15px;
+                        }
+                 p { color:red; margin:5px; cursor:pointer; }
+                  p:hover { background:yellow; }</style>
+                 <script charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+                <script>
+                  $(function(){   // $(document).click(function(){ alert("hier3 inn ready funtion");});
+                    $("p").click(function () { $(this).slideUp();
+                    $('input[type="text"]').each(function(){$(this).toggleValue($(this).val("hhh"));});
+                    var error=false;  alert ("hallo");
+                    $("#message").keyup(function(){
+                         var verbleibendeL= 140 - $("#message").val().length;
+                            $("label").text("Please enter your message: " + verbleibendeL)
+                          if(verbleibendeL < 0) { $("#message").css("border-color","red") ;
+                                        if (error == false){
+                                        $("#message").after("<p id='error_message' style='color:white' >bitte  maximal 140 Zeichen eingeben</p>") ;
+                                        error=true; } }
+                                        else
+                           {
+                              $("#message").css("border-color","transparent");
+                             if (error ==true){ error = false;  $("#error_message").hide();}
+                              }
+
+
+                  });   });
+
+
+
+
+                </script>
+        </head>
+        <body>
+        <input id="email" name="email" type="text" value="E-Mail Adresse" />
+                <div id="message-div">
+                        <label for="message">Please enter your message:</label><br>
+                        <textarea id="message"></textarea>
+                        <div class="button"><button id="butt" >Send</button></div>
+                        <a href="http://www.google.de"> hier klicken</a>
+                         <p>First Paragraph</p>
+                             <p>Second Paragraph</p>
+                              <p>Yet one more Paragraph</p>
+                </div>
+            <script>
+
+
+            </script>
+        </body>
+</html>
